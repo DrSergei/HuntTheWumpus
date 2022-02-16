@@ -1,8 +1,13 @@
-package com.company.objects.enemy;
+package main.java.field.enemy;
 
+import main.java.field.room.Room;
 import org.jetbrains.annotations.NotNull;
 
 public class Wumpus extends Enemy {
+
+    Wumpus(Room room) {
+        this.room = room;
+    }
 
     @Override
     @NotNull

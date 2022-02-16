@@ -1,8 +1,8 @@
-package com.company.objects.person;
+package main.java.field.person;
 
-import com.company.objects.enemy.Listener;
-import com.company.objects.field.Field;
-import com.company.objects.field.RoomFactory;
+import main.java.field.enemy.Hole;
+import main.java.field.enemy.Listener;
+import main.java.field.room.Room;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ public class Person {
 
     private Integer arrows;
     private Integer healthPoints;
-    private RoomFactory.Room room;
+    private Room room;
     private List<Listener> listeners;
 
     public Person() {
@@ -24,13 +24,17 @@ public class Person {
     }
 
     public void move(Integer number) {
-
-
+        for (Listener listener : listeners) {
+            listener.personMove();
+        }
     }
 
     public void shout() {
         assert(arrows > 0);
         arrows--;
+        for (Listener listener : listeners) {
+            listener.personShout();
+        }
     }
 
     public void addListener(Listener listener) {

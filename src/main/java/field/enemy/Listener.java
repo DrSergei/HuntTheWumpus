@@ -1,4 +1,4 @@
-package com.company.objects.enemy;
+package main.java.field.enemy;
 
 public interface Listener {
 

@@ -1,8 +1,14 @@
-package com.company.objects.enemy;
+package main.java.field.enemy;
 
+import main.java.field.room.Room;
+import main.java.field.room.RoomFactory;
 import org.jetbrains.annotations.NotNull;
 
 public class Bat extends Enemy {
+
+    Bat(Room room) {
+        this.room = room;
+    }
 
     @Override
     @NotNull
