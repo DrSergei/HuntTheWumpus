@@ -1,4 +1,4 @@
-package main.java.field.room;
+package main.java.game.labyrinth;
 
 import java.util.ArrayList;
 import java.util.List;

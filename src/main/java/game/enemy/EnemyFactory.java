@@ -1,4 +1,4 @@
-package main.java.field.enemy;
+package main.java.game.enemy;
 
 import java.util.ArrayList;
 import java.util.List;

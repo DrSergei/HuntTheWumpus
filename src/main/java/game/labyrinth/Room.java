@@ -1,6 +1,7 @@
-package main.java.field.room;
+package main.java.game.labyrinth;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Room {
@@ -19,6 +20,6 @@ public class Room {
 
     final private List<Room> neighbours;
     public List<Room> getNeighbours() {
-        return neighbours;
+        return Collections.unmodifiableList(neighbours);
     }
 }
