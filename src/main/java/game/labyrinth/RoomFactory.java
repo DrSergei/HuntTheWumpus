@@ -6,6 +6,11 @@ import java.util.List;
 public class RoomFactory {
 
     public List<Room> createRooms() {
-        return new ArrayList();
+        Integer counter = 1;
+        List<Room> buffer = new ArrayList();
+        while (counter <= 20) {
+            buffer.add(new Room(counter++));
+        }
+        return buffer;
     }
 }

@@ -7,6 +7,6 @@ public interface Listener {
 
     Person.Result personMove(Person player);
 
-    Person.Result personShout();
+    Person.Result personShout(Person player);
 }
 

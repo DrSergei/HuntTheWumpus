@@ -4,12 +4,10 @@ import main.java.game.Person;
 import main.java.game.labyrinth.Room;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.List;
-
 public class Hole extends Enemy {
 
     Hole(Room room) {
-        this.room = room;
+        super(room);
     }
 
     @Override
@@ -27,7 +25,7 @@ public class Hole extends Enemy {
     }
 
     @Override
-    public Person.Result personShout() {
+    public Person.Result personShout(Person player) {
         return Person.Result.NOTHING;
     }
 }

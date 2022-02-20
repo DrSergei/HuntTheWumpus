@@ -1,9 +1,11 @@
 package main.java.game;
 
+import main.java.game.enemy.Enemy;
 import main.java.game.labyrinth.Field;
 import main.java.game.enemy.Listener;
 import main.java.game.labyrinth.Room;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Person {
@@ -16,6 +18,7 @@ public class Person {
     public Person() {
         arrows = 5;
         field = new Field();
+        listeners = new ArrayList();
         for (Listener listener : field.getEnemies()) {
             addListener(listener);
         }
@@ -69,21 +72,30 @@ public class Person {
 
     public String warningMessage() {
         StringBuilder buffer = new StringBuilder();
-        // TODO
+        buffer.append("Вы");
+        List<Room> neighbours = room.getNeighbours();
+        for (Room neighbour : room.getNeighbours()) {
+            buffer.append(" ").append(neighbour.warningMessage);
+        }
         return buffer.toString();
     }
 
     public String labyrinthMessage() {
-        // TODO
-        return "";
+        StringBuilder buffer = new StringBuilder();
+        buffer.append("Вы можете пойти в комнаты");
+        for (Room neighbour : room.getNeighbours()) {
+            buffer.append(" ").append(neighbour.id);
+        }
+        return buffer.toString();
     }
 
     // функция стрельбы
-    public Result shout() {
+    public Result shout(List<Room> path) {
         assert(arrows > 0);
         arrows--;
+        Room current = room;
         for (Listener listener : listeners) {
-            Result result = listener.personMove(this);
+            Result result = listener.personShout(this);
             if (result == Result.LOSE || result == Result.WIN) {
                 return result;
             }

@@ -8,8 +8,8 @@ import java.util.List;
 
 public class Bat extends Enemy {
 
-    Bat(Room room) {
-        this.room = room;
+    public Bat(Room room) {
+        super(room);
     }
 
     @Override
@@ -28,7 +28,7 @@ public class Bat extends Enemy {
     }
 
     @Override
-    public Person.Result personShout() {
+    public Person.Result personShout(Person player) {
         return Person.Result.NOTHING;
     }
 }

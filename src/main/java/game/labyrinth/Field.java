@@ -10,7 +10,7 @@ public class Field {
 
     public Field() {
         this.labyrinth = new RoomFactory().createRooms();
-        this.enemies = new EnemyFactory().createEnemies();
+        this.enemies = new EnemyFactory().createEnemies(labyrinth);
     }
 
 

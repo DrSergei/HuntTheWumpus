@@ -4,10 +4,13 @@ import main.java.game.Person;
 import main.java.game.labyrinth.Room;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
+import java.util.Random;
+
 public class Wumpus extends Enemy {
 
     Wumpus(Room room) {
-        this.room = room;
+        super(room);
     }
 
     @Override
@@ -25,8 +28,14 @@ public class Wumpus extends Enemy {
     }
 
     @Override
-    public Person.Result personShout() {
-        //TODO
+    public Person.Result personShout(Person player) {
+        Random random = new Random();
+        if (random.nextInt(4) != 0) {
+            List<Room> neighbours = room.getNeighbours();
+            room = neighbours.get(random.nextInt(neighbours.size()));
+            if (player.getRoom() == room)
+                return Person.Result.LOSE;
+        }
         return Person.Result.NOTHING;
     }
 }
