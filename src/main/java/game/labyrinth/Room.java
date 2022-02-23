@@ -38,10 +38,13 @@ public class Room {
 
     public final Integer id;
     private String warningMessage;
-    void setWarningMessage(String buffer) {
+    public void setWarningMessage(String buffer) {
         warningMessage = buffer;
     }
-    final private List<Room> neighbours;
+    private final List<Room> neighbours;
+    void addNeighbour(Room room) {
+        neighbours.add(room);
+    }
     public List<Room> getNeighbours() {
         return Collections.unmodifiableList(neighbours);
     }

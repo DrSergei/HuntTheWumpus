@@ -4,6 +4,7 @@ import main.java.game.enemy.Listener;
 import main.java.game.labyrinth.Room;
 
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -11,11 +12,12 @@ public class Person {
 
     private Integer arrows;
     private Room room;
-    private List<Listener> listeners;
+    private final List<Listener> listeners;
 
     Person(Room startRoom) {
         arrows = 5;
         room = startRoom;
+        listeners = new ArrayList<>();
     }
 
     public void addListeners(Collection<? extends Listener> buffer) {
@@ -39,9 +41,13 @@ public class Person {
 
     public Game.Result shout(List<Integer> path) {
         arrows--;
-        if (arrows == 0)
-            return Game.Result.LOSE;
-        return Game.Result.NOTHING;
+        Game.Result currentResult = (arrows == 0) ? (Game.Result.LOSE) : (Game.Result.NOTHING);
+        for(Listener listener : listeners) {
+            currentResult = listener.personShout(this, path);
+            if (currentResult == Game.Result.WIN)
+                return currentResult;
+        }
+        return currentResult;
     }
 
     public final Room getRoom() {

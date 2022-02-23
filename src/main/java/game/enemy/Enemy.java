@@ -11,6 +11,7 @@ public abstract class Enemy implements Listener {
     public Enemy(Labyrinth labyrinth, Integer index) {
         this.labyrinth = labyrinth;
         room = labyrinth.get(index);
+        room.setWarningMessage(warningMessage());
     }
 
     protected Labyrinth labyrinth;
