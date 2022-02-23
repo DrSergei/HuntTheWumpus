@@ -18,8 +18,29 @@ public class Room {
         this.warningMessage = "";
     }
 
+    public String neighboursMessage() {
+        StringBuilder buffer = new StringBuilder();
+        buffer.append("Соседние комнаты:");
+        for (Room room : neighbours) {
+            buffer.append(" ").append(room.id);
+        }
+        return buffer.toString();
+    }
+
+    public String WarningMessage() {
+        StringBuilder buffer = new StringBuilder();
+        buffer.append("Вы ");
+        for (Room room : neighbours) {
+            buffer.append(room.warningMessage).append(" ");
+        }
+        return buffer.toString();
+    }
+
     public final Integer id;
-    public String warningMessage;
+    private String warningMessage;
+    void setWarningMessage(String buffer) {
+        warningMessage = buffer;
+    }
     final private List<Room> neighbours;
     public List<Room> getNeighbours() {
         return Collections.unmodifiableList(neighbours);

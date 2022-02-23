@@ -1,15 +1,15 @@
 package main.java.game.enemy;
 
+import main.java.game.Game;
 import main.java.game.Person;
+import main.java.game.labyrinth.Labyrinth;
 import main.java.game.labyrinth.Room;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.List;
-
 public class Bat extends Enemy {
 
-    public Bat(Room room) {
-        super(room);
+    public Bat(Labyrinth labyrinth, Integer index) {
+        super(labyrinth, index);
     }
 
     @Override
@@ -19,16 +19,11 @@ public class Bat extends Enemy {
     }
 
     @Override
-    public Person.Result personMove(Person player) {
+    public Game.Result personMove(Person player) {
         if (player.getRoom() == room) {
-            List<Room> labyrinth = player.field.getLabyrinth();
-            return player.setRoom(labyrinth.get(0));
+            player.move(labyrinth.getRandomRoom());
         }
-        return Person.Result.NOTHING;
+        return Game.Result.NOTHING;
     }
 
-    @Override
-    public Person.Result personShout(Person player) {
-        return Person.Result.NOTHING;
-    }
 }

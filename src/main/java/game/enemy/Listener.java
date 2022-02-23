@@ -1,12 +1,19 @@
 package main.java.game.enemy;
 
+import main.java.game.Game;
 import main.java.game.Person;
-//import main.java.game.Person.Result;
+import main.java.game.labyrinth.Labyrinth;
+
+import java.util.List;
 
 public interface Listener {
 
-    Person.Result personMove(Person player);
+    default Game.Result personMove(Person player) {
+        return Game.Result.NOTHING;
+    }
 
-    Person.Result personShout(Person player);
+    default Game.Result personShout(Person player, List<Integer> path) {
+        return Game.Result.NOTHING;
+    }
 }
 

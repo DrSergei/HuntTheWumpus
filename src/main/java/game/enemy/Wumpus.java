@@ -1,6 +1,8 @@
 package main.java.game.enemy;
 
+import main.java.game.Game;
 import main.java.game.Person;
+import main.java.game.labyrinth.Labyrinth;
 import main.java.game.labyrinth.Room;
 import org.jetbrains.annotations.NotNull;
 
@@ -9,9 +11,13 @@ import java.util.Random;
 
 public class Wumpus extends Enemy {
 
-    Wumpus(Room room) {
-        super(room);
+    public Wumpus(Labyrinth labyrinth, Integer index) {
+        super(labyrinth, index);
     }
+
+    //Wumpus(Labyrinth labyrinth, Integer index) {
+      //  super(labyrinth, index);
+    //}
 
     @Override
     @NotNull
@@ -20,22 +26,24 @@ public class Wumpus extends Enemy {
     }
 
     @Override
-    public Person.Result personMove(Person player) {
+    public Game.Result personMove(Person player) {
         if (player.getRoom() == room) {
-            return Person.Result.LOSE;
+            return Game.Result.LOSE;
         }
-        return Person.Result.NOTHING;
+        return Game.Result.NOTHING;
     }
 
     @Override
-    public Person.Result personShout(Person player) {
+    public Game.Result personShout(Person player, List<Integer> path) {
+        if (path.contains(room.id))
+            return Game.Result.WIN;
         Random random = new Random();
         if (random.nextInt(4) != 0) {
             List<Room> neighbours = room.getNeighbours();
             room = neighbours.get(random.nextInt(neighbours.size()));
             if (player.getRoom() == room)
-                return Person.Result.LOSE;
+                return Game.Result.LOSE;
         }
-        return Person.Result.NOTHING;
+        return Game.Result.NOTHING;
     }
 }
