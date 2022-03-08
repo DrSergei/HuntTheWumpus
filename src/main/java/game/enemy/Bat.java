@@ -6,6 +6,9 @@ import main.java.game.labyrinth.Labyrinth;
 import main.java.game.labyrinth.Room;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ *  Класс мыши(отправляет игрока случайную комнату)
+ */
 public class Bat extends Enemy {
 
     public Bat(Labyrinth labyrinth, Integer index) {

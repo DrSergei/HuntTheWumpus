@@ -9,15 +9,14 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Класс вампуса(убивает игрока при встрече)
+ */
 public class Wumpus extends Enemy {
 
     public Wumpus(Labyrinth labyrinth, Integer index) {
         super(labyrinth, index);
     }
-
-    //Wumpus(Labyrinth labyrinth, Integer index) {
-      //  super(labyrinth, index);
-    //}
 
     @Override
     @NotNull

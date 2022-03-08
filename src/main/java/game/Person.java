@@ -14,20 +14,25 @@ public class Person {
     private Room room;
     private final List<Listener> listeners;
 
+    /**
+     * Создает персонажа
+     */
     Person(Room startRoom) {
         arrows = 5;
         room = startRoom;
         listeners = new ArrayList<>();
     }
 
+    /**
+     * Добавляет слушателей
+     */
     public void addListeners(Collection<? extends Listener> buffer) {
         listeners.addAll(buffer);
     }
 
-    public void addListener(Listener listener) {
-        listeners.add(listener);
-    }
-
+    /**
+     * Перемещает в комнату
+     */
     public Game.Result move(Room newRoom) {
         room = newRoom;
         Game.Result currentResult = Game.Result.NOTHING;
@@ -39,6 +44,9 @@ public class Person {
         return currentResult;
     }
 
+    /**
+     * Стрельба по пути
+     */
     public Game.Result shout(List<Integer> path) {
         arrows--;
         Game.Result currentResult = (arrows == 0) ? (Game.Result.LOSE) : (Game.Result.NOTHING);
@@ -50,6 +58,9 @@ public class Person {
         return currentResult;
     }
 
+    /**
+     * Текущая комната
+     */
     public final Room getRoom() {
         return room;
     }

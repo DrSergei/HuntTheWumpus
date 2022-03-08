@@ -5,9 +5,16 @@ import main.java.game.labyrinth.Labyrinth;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Фабрика по заполнению лабиринта противниками
+ */
 public class EnemyFactory {
+
+    /**
+     * Метод случайного заполнения(TODO)
+     */
     public List<Enemy> createEnemies(Labyrinth labyrinth) {
-        List<Enemy> buffer = new ArrayList();
+        List<Enemy> buffer = new ArrayList<>();
         buffer.add(new Wumpus(labyrinth, 1));
         buffer.add(new Bat(labyrinth, 5));
         buffer.add(new Bat(labyrinth, 9));

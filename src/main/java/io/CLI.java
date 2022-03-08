@@ -10,7 +10,9 @@ public class CLI {
 
     private CLI() {}
 
-    // Цикл игры
+    /**
+     * Цикл общения с игроком
+     */
     public static void play() {
         Game game = new Game();
         Scanner input = new Scanner(System.in);

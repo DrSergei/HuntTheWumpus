@@ -3,8 +3,14 @@ package main.java.game.labyrinth;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Фабрика для лабиринта
+ */
 public class LabyrinthFactory {
 
+    /**
+     * Возвращает случайный лабиринт(TODO)
+     */
     public Labyrinth createLabyrinth() {
         List<Room> buffer = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
