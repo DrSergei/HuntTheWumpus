@@ -41,21 +41,21 @@ public class Labyrinth {
     /**
      * Стартовая комната
      */
-    public final Room getStartRoom() {
+    public Room getStartRoom() {
         return struct.get(0);
     }
 
     /**
      * Случайная комната
      */
-    public final Room getRandomRoom() {
+    public Room getRandomRoom() {
         return struct.get(new Random().nextInt(struct.size()));
     }
 
     /**
      * Комната по номеру
      */
-    public final Room get(Integer index) {
+    public Room get(Integer index) {
         if (index > struct.size())
             return null;
         return struct.get(index);

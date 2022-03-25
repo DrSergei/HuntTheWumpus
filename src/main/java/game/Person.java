@@ -61,7 +61,7 @@ public class Person {
     /**
      * Текущая комната
      */
-    public final Room getRoom() {
+    public Room getRoom() {
         return room;
     }
 }
